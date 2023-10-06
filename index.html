@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Set responsive four columns when screen changes</title>
+
+  <style>
+  * {
+     box-sizing: border-box;
+  }
+
+ /* Стиль верхней панели навигации */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            
+        }
+
+        #main {
+            background-color: green;
+        }
+
+        /* Стиль верхних навигационных ссылок */
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: left;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Изменение цвета при наведении */
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* На экранах, которые 600px шириной или меньше, сделать ссылки меню стек поверх друг друга, а не рядом друг с другом */
+        @media screen and (max-width: 600px) {
+            .topnav a {
+                float: none;
+                width: 100%;
+            }
+        }
+
+
+  /* Создаем четыре одинаковых столбца, которые плавают рядом друг с другом */
+  .column {
+     float: left;
+     width: 25%;
+     padding: 20px;
+  }
+
+  .img {
+    width: 50%;
+    float: left;
+    margin-right: 14px;
+  }
+
+  /* Очистить float после колонок */
+  .row:after { /*создание псевдо-элемента после .row*/
+     content: ""; /*вставка после ряда контента в виде пустой строки*/
+     display: table; /*отображение в виде таблицы*/
+     clear: both; /*очистка float’ов с обеих сторон*/
+  }
+
+  /* На экранах шириной 992px или меньше перейдем к двум столбцам */
+  @media screen and (max-width: 992px) {
+     .column {
+         width: 50%;
+     }
+  }
+
+  /* На экранах, которые имеют ширину 600 пикселей или меньше, создаем стек столбцов поверх друг друга, а не рядом друг с другом */
+  @media screen and (max-width: 600px) {
+     .column {
+         width: 100%;
+     }
+  }
+  </style>
+
+ </head>
+
+ <body>
+
+  <h2>CSS Set responsive four columns when screen changes</h2>
+
+  <p><strong>Resize your browser window to see the responsive effect.</strong> 
+  On screens that are 992px or smaller, the columns change from four columns to two columns.
+  On screens 600 pixels wide or smaller, the columns will be stacked on top of each other rather than next to each other.</p>
+
+  <div class="topnav">
+        <a href="#" id="main">Home</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+  </div>
+
+
+  <div class="row">
+    <div class="column" style="background-color:#aaa;">
+      <img class="img" src="./img/feld_4.jpg">
+      <h2>Column</h2>
+      <p>Some text will be written here...</p>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+      <img class="img" src="./img/feld_5.jpg">
+      <h2>Column</h2>
+      <p>Some text will be written here...</p>
+    </div>
+    <div class="column" style="background-color:#ccc;">
+      <img class="img" src="./img/feld_6.jpg">
+      <h2>Column</h2>
+      <p>Some text will be written here...</p>
+    </div>
+    <div class="column" style="background-color:#ddd;">
+      <img class="img" src="./img/feld_7.jpg">
+      <h2>Column</h2>
+      <p>Some text will be written here...</p>
+    </div>
+  </div>
+
+ </body>
+</html>
+
